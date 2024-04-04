@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import Component from './component/Component';
 import Sample from './component/Sample';
-import SignInContainer from './component/example/SignInContainer';
+// import SignInContainer from './component/example/SignInContainer';
 import CurlyBraces from './component/CurlyBraces';
 import Properties from './component_manage/properties';
+import SignInContainer from './component_manage/example/SignInContainer';
 
 
 
