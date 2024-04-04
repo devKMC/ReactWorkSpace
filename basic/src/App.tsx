@@ -4,6 +4,7 @@ import Component from './component/Component';
 import Sample from './component/Sample';
 import SignInContainer from './component/example/SignInContainer';
 import CurlyBraces from './component/CurlyBraces';
+import Properties from './component_manage/properties';
 
 
 
@@ -82,8 +83,9 @@ function App() {
       <FunctionComeponent></FunctionComeponent> */}
       {/* <Component/>
       <Sample/> */}
-      {/* <SignInContainer /> */}
-      <CurlyBraces />
+      <SignInContainer />
+      {/* <CurlyBraces /> */}
+      {/* <Properties /> */}
     </>
   );
 }

@@ -3,13 +3,14 @@
 // SignInContainer 컴포넌트를 기본값으로 내보내기
 
 import React from 'react'
-import { IdInputBox, PasswordInputbox } from './InputBox'
+import InputBox, { IdInputBox, PasswordInputbox } from './InputBox'
 
 
 export default function SignInContainer() {
     return (
         <>
-            {/* <IdInputBox label="아이디" type="text" placeholder="아이디를 입력하세요."/> */}
+            <InputBox label="아이디" type="text" placeholder="아이디를 입력하세요."/>
+            <InputBox label="비밀번호" type="password" placeholder="비밀번호를 입력하세요."/>
             <PasswordInputbox />
         </>
 

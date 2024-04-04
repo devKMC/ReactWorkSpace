@@ -8,24 +8,39 @@ import React from 'react'
 interface Props {
     title: string;
     content: string;
+    nickName?: string; // 선택형으로 바꾸면 꼭 사용하지 않아도 된다를 표현함
 }
 
-function Child({title,content) {
+function Child({title, content ,nickName ="비공개"}: Props) {
+
+    // 위에서 인터페이스로 선언해서 props값을 가지고 있게 됨
+    // props = {
+    //     title: '제목1'
+    //     content: '내용1'
+    // }
+
+    // 타이틀과 컨텐츠만 div에 적기 위한 작업
+    // const title = props.title;
+    // const content = props.content;
+
+    // 가장 좋은 방법 
+    // const {title, content} = props; // 디스트럭쳐링 (객체) : props = title, content 다
 
     return (
         <div>
             <h1>{title}</h1>
+            <h4>{nickName}</h4>
             <p>{content}</p>
         </div>
     )
 }
 
-export default function properties() {
+export default function Properties() {
     return (
     <>
-            <Child title = '제목1' content='내용1' />
-            <Child />
-            <Child />
+            <Child title = "제목1" content="내용1" nickName='로제'/>
+            <Child title = "국제인구 이동" content="보도자료" />
+            <Child title = "오늘 뭘 먹을까" content="글쎄.." />
     </>
     )
 }
