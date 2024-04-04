@@ -38,7 +38,7 @@ function JsxComponent(){
         <>
             <h1> 첫번째 페이지입니다.</h1>
             <div>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/280px-Golde33443.JPG' className='image-box' />
+            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/280px-Golde33443.JPG'  className='image-box' />
         </div>
         </>
     )
