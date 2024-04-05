@@ -8,6 +8,7 @@ import Properties from './component_manage/properties';
 
 import ConditionalRendering from './component_manage/ConditionalRendering';
 import SignInContainer from './component_manage/example/SignInContainer';
+import ListRendering from './component_manage/ListRendering';
 
 
 
@@ -89,7 +90,7 @@ function App() {
       <Sample/> */}
       <SignInContainer />
       {/* <SignInContainer1 /> */}
-      
+      <ListRendering />
       {/* <CurlyBraces /> */}
       {/* <Properties /> */}
       {/* <ConditionalRendering /> */}
