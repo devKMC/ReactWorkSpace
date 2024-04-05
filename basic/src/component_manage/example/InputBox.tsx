@@ -3,15 +3,16 @@ import React from 'react'
 
 
 
-interface Props {
-    label: String;
-    buttontitle?: String;
+export interface InputBoxProps {
+    label: string;
+    buttonTitle?: string;
     type: 'text' | 'password';
     placeholder: string;
 
 }
 
-export default function InputBox({ label, type, placeholder, buttontitle }: Props) {
+export default function InputBox({ label, type, placeholder, buttonTitle }: InputBoxProps) {
+
     return (
         <div className="input-box">
             <div className="input-label label">{label}</div>
@@ -21,9 +22,11 @@ export default function InputBox({ label, type, placeholder, buttontitle }: Prop
                     type={type}
                     placeholder={placeholder}
                 />
+                { buttonTitle && 
                 <div className="input-disable-button">
-                    {buttontitle}
-                </div>
+                    {buttonTitle}
+                </div> 
+                }
             </div>
             <div className="input-message"></div>
         </div>
