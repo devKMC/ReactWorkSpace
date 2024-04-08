@@ -10,8 +10,6 @@ import React, { KeyboardEvent, MouseEvent, useState } from 'react'
 // - on 이벤트에 콜백함수를 전달
 export default function EventComponent() {
 
-    // let total : number = 0;
-
 
     const onClickHandler = () => {
         alert('클릭!');
