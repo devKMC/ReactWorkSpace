@@ -10,6 +10,7 @@ import ConditionalRendering from './component_manage/ConditionalRendering';
 import SignInContainer from './component_manage/example/SignInContainer';
 import ListRendering from './component_manage/ListRendering';
 import EventComponent from './interaction/EventComponent';
+import StateComponent from './interaction/StateComponent';
 
 
 
@@ -95,7 +96,8 @@ function App() {
       {/* <CurlyBraces /> */}
       {/* <Properties /> */}
       {/* <ConditionalRendering /> */}
-      <EventComponent></EventComponent>
+      {/* <EventComponent></EventComponent> */}
+      <StateComponent />
     </>
   );
 }

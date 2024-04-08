@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, MouseEvent } from 'react'
+import React, { KeyboardEvent, MouseEvent, useState } from 'react'
 
 // 이벤트 처리:
 // -웹 페이지 (컴포넌트)가 사용자와의 상호작용을 받아들여 그것에 대한 처리를 하는 것
@@ -9,6 +9,9 @@ import React, { KeyboardEvent, MouseEvent } from 'react'
 // - on 이벤트 속성은 lowerCamelCase를 따름
 // - on 이벤트에 콜백함수를 전달
 export default function EventComponent() {
+
+    // let total : number = 0;
+
 
     const onClickHandler = () => {
         alert('클릭!');
@@ -41,6 +44,7 @@ export default function EventComponent() {
             <button onClick={onCountAddHandler}>+</button>
             {/* 변수를 적을땐 중괄호 안에 넣어줘야함 */}
             <h1>{count}</h1> 
+            
         </>
     )
 }
