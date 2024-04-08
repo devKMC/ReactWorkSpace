@@ -9,6 +9,7 @@ import Properties from './component_manage/properties';
 import ConditionalRendering from './component_manage/ConditionalRendering';
 import SignInContainer from './component_manage/example/SignInContainer';
 import ListRendering from './component_manage/ListRendering';
+import EventComponent from './interaction/EventComponent';
 
 
 
@@ -88,12 +89,13 @@ function App() {
       <FunctionComeponent></FunctionComeponent> */}
       {/* <Component/>
       <Sample/> */}
-      <SignInContainer />
+      {/* <SignInContainer /> */}
       {/* <SignInContainer1 /> */}
-      <ListRendering />
+      {/* <ListRendering /> */}
       {/* <CurlyBraces /> */}
       {/* <Properties /> */}
       {/* <ConditionalRendering /> */}
+      <EventComponent></EventComponent>
     </>
   );
 }
