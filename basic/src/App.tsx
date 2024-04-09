@@ -11,6 +11,7 @@ import SignInContainer from './component_manage/example/SignInContainer';
 import ListRendering from './component_manage/ListRendering';
 import EventComponent from './interaction/EventComponent';
 import StateComponent from './interaction/StateComponent';
+import ForwordingStateComponent from './interaction/ForwordingStateComponent';
 
 
 
@@ -82,7 +83,7 @@ function FunctionComeponent (){
 // }
 
 
-
+// * 렌더링 하는 곳으로 보면 됨
 function App() {
   return (
     <>
@@ -97,7 +98,8 @@ function App() {
       {/* <Properties /> */}
       {/* <ConditionalRendering /> */}
       {/* <EventComponent></EventComponent> */}
-      <StateComponent />
+      {/* <StateComponent /> */}
+      <ForwordingStateComponent />
     </>
   );
 }
