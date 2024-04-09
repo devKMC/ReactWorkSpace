@@ -1,0 +1,109 @@
+
+/*아이디로 받았을때*/
+#authentication-wrapper {
+    display: flex;
+    width:  100%;
+    height: 100vh;
+    min-height: 1024px;
+}
+
+.authentication-image-box{
+    min-width: 830px;
+    
+
+    background-size: cover;
+}
+
+.authentication-box{
+    flex-grow: 1;
+    min-width: 610px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authentication-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    width: 380px;
+    height: 523px;
+}
+
+.authentication-title{
+    color: rgba(64, 64 ,64 ,1);
+}
+
+.authentication-contents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    width: 100%;
+}
+
+.authentication-input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    width: 100%;
+}
+
+.input-box{
+    width: 100%;
+}
+
+.input-label{
+    color: rgba(138, 146, 166, 1);
+}
+
+.input-content-box{
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.input-message{
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.primary{
+    color: rgba(58, 87 ,232, 1);
+}
+
+.error{
+    color: rgba(255, 84, 64, 1);
+}
+
+.authentication-button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    width: 100%;
+}
+
+.authentication-sns-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.sns-container-title {
+    color: rgba(138, 146, 166, 1);
+}
+
+.sns-button-container {
+    display: flex;
+    gap: 24px;
+}
