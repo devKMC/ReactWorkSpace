@@ -6,6 +6,8 @@ import SignInBackGround from 'assets/image/sign-in-background.png';
 import SignUpBackGround from 'assets/image/sign-in-background.png';
 import InputBox from "components/Inputbox";
 
+
+
 type AuthPage = 'sign-in' | 'sign-up';
 
 interface SnsContainerProps {
