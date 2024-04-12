@@ -6,15 +6,18 @@ export interface InputBoxProps {
     type: 'text' | 'password';
     value: string;
     placeholder: string;
-    onChangeHandler: (event:ChangeEvent<HTMLInputElement>) => void;
+    onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
     buttonTitle?: string;
     buttonStatus?: boolean;
-    onButtonClickHandler? :() => void;
+    onButtonClickHandler?: () => void;
+    message?: string;
+    error?: boolean;
 }
 
-export default function InputBox({ label, type,value, placeholder,onChangeHandler, buttonTitle,buttonStatus,onButtonClickHandler }: InputBoxProps) {
+export default function InputBox({ label, type, value, placeholder, onChangeHandler, buttonTitle, buttonStatus, onButtonClickHandler, message, error }: InputBoxProps) {
 
-    const buttonClass = buttonStatus ? 'input-primary-button': 'input-disable-button';
+    const buttonClass = buttonStatus ? 'input-primary-button' : 'input-disable-button';
+    const messageClass = 'input-message ' + (error ? 'error' : 'primary');
 
     return (
         <div className="input-box">
@@ -26,7 +29,6 @@ export default function InputBox({ label, type,value, placeholder,onChangeHandle
                     value={value}
                     placeholder={placeholder}
                     onChange={onChangeHandler}
-
                 />
                 { buttonTitle && 
                 <div className={buttonClass} onClick={onButtonClickHandler}>
@@ -34,7 +36,9 @@ export default function InputBox({ label, type,value, placeholder,onChangeHandle
                 </div> 
                 }
             </div>
-            <div className="input-message"></div>
+            <div className={messageClass}>
+                {message}
+            </div>
         </div>
     );
 }
