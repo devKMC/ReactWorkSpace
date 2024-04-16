@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 // Custom hook
 // - 리액트의 훅 함수는 함수형 컴포넌트의 코드 블럭에서만 호출 가능
-// -
+// - 함수명을 use로 시작하게 작성하여 커스텀 훅 함수를 만들 수 있음
+
 
 export default function CustomHook() {
 
@@ -51,46 +52,44 @@ export default function CustomHook() {
     // if (totalPage< index) break;
     // viewPageList.push(index)
 
-
     const [page, setPage] = useState<number>(1);
     const [section, setSection] = useState<number>(1);
     const [boardList, setBordList] = useState<string[]>([]);
     const [viewList, setViewList] = useState<string[]>([]);
     const [viewPageList, setViewPageList] = useState<number[]>([]);
 
+    const totalPageCount = useRef<number>(1);
+    const totalSectionCount = useRef<number>(1);
+
     const COUNT_PER_PAGE = 5;
     const COUNT_PER_SECTION = 10;
 
-    let totalPageCount = 0;
-    let totalSectionCount = 0;
 
     // 화살표 함수 지정
-    const setNextPage = () => {
-
-    }
-
-    const setPreviousPage = () => {
-
-    }
 
     const setNextSection = () => {
-
+        if (section === totalSectionCount.current) return;
+        setSection(section + 1);
     }
 
     const setPreviousSection = () => {
-
+        if (section === 1) return;
+        setSection(section - 1)
     }
 
     // 마운트 시에만 실행 (마운트 업데이트, 업마운트)
     useEffect(() => {
+
+
+
         // 복사해서 넣어두지 않으면 빈 배열을 받게 됨
         const boardList = BOARD_LIST;
         // setBordList에 BOARD_LIST 받기
         setBordList(BOARD_LIST);
         // 총 페이지수 22개 
         // 의미있는 리터럴 (값) 5 하고 10을 상수로 위에서 지정해야 함
-        totalPageCount = Math.floor((boardList.length - 1) / 5) + 1;
-        totalSectionCount = Math.floor((boardList.length - 1) / 5 * 10) + 1;
+        totalPageCount.current = Math.floor((boardList.length - 1) / COUNT_PER_PAGE) + 1;
+        totalSectionCount.current = Math.floor((boardList.length - 1) / COUNT_PER_PAGE * COUNT_PER_SECTION) + 1;
 
         // 한페이지에 보여줄 것
         const viewList = [];
@@ -107,12 +106,13 @@ export default function CustomHook() {
 
         setViewList(viewList);
 
+
         const viewPageList = [];
         const currentSectionStart = COUNT_PER_SECTION * section - (COUNT_PER_SECTION - 1);
         const currentSectionEnd = COUNT_PER_SECTION * section;
 
         for (let page = currentSectionStart; page <= currentSectionEnd; page++) {
-            if (page >= totalPageCount) break
+            if (page >= totalPageCount.current) break
             viewPageList.push(page);
         }
 
@@ -121,56 +121,59 @@ export default function CustomHook() {
 
 
         // 마운트 시에만 동작할 것이다라는 빈배열 
-    }, []);
+    }, [page]);
 
 
+
+    // onClick 작업으로 페이지를 클릭할 수 있게 지정함
     return (
         <div>
             {viewList.map((item, index) => <h3 key={index}>{item}</h3>)}
             <div>
-                <span style={{ display: 'inline-block', margin: '4px' }}>이전</span>
-                {viewPageList.map((item, index) => <span key={index} style={{ display: 'inline-block', margin: '4px', fontWeight: item === page ? 900 : 400 }}>{item}</span>)}
-                <span style={{ display: 'inline-block', margin: '4px' }}>이후</span>
+                <span style={{ display: 'inline-block', margin: '4px' }} onClick={setPreviousSection}>이전</span>
+                {viewPageList.map((item, index) => <span key={index} style={{ display: 'inline-block', margin: '4px', fontWeight: item === page ? 900 : 400 }} onClick={() => setPage(item)}>{item}</span>)}
+                <span style={{ display: 'inline-block', margin: '4px' }} onClick={setNextSection} >이후</span>
             </div>
+            {section}
         </div>
     );
 }
 
-    // 마운트시에만 보드 리스트(위)에 밑에있는 보드리스트(밑) 넣을 것
-    const BOARD_LIST = [
-        "게시물1",
-        "게시물2",
-        "게시물3",
-        "게시물4",
-        "게시물5",
-        "게시물6",
-        "게시물7",
-        "게시물8",
-        "게시물9",
-        "게시물10",
-        "게시물11",
-        "게시물12",
-        "게시물13",
-        "게시물14",
-        "게시물15",
-        "게시물16",
-        "게시물17",
-        "게시물18",
-        "게시물19",
-        "게시물20",
-        "게시물21",
-        "게시물22",
-        "게시물23",
-        "게시물24",
-        "게시물25",
-        "게시물26",
-        "게시물27",
-        "게시물28",
-        "게시물29",
-        "게시물30",
-        "게시물31",
-        "게시물32",
-        "게시물33",
-        "게시물34"
+// 마운트시에만 보드 리스트(위)에 밑에있는 보드리스트(밑) 넣을 것
+const BOARD_LIST = [
+    "게시물1",
+    "게시물2",
+    "게시물3",
+    "게시물4",
+    "게시물5",
+    "게시물6",
+    "게시물7",
+    "게시물8",
+    "게시물9",
+    "게시물10",
+    "게시물11",
+    "게시물12",
+    "게시물13",
+    "게시물14",
+    "게시물15",
+    "게시물16",
+    "게시물17",
+    "게시물18",
+    "게시물19",
+    "게시물20",
+    "게시물21",
+    "게시물22",
+    "게시물23",
+    "게시물24",
+    "게시물25",
+    "게시물26",
+    "게시물27",
+    "게시물28",
+    "게시물29",
+    "게시물30",
+    "게시물31",
+    "게시물32",
+    "게시물33",
+    "게시물34"
 
-    ]
+]
