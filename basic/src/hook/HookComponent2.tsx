@@ -7,7 +7,7 @@ export default function HookComponent2() {
 
     const [image,setImage] =useState<string>('');
 
-    // const DOM객체참조변수 = useRef<DOM요소타입>();  ( 제너릭은 HTML 의 인풋요소 , HTML의 DIV 요소 이렇게 지정함 )
+    // const DOM객체참조변수 = useRef<DOM요소타입>(초기값);  ( 제너릭은 HTML 의 인풋요소 , HTML의 DIV 요소 이렇게 지정함 )
     // DOM 객체를 참조하기 위해서 useRef를 사용하면 참조할 요소의 ref= {} 속성에 해당 참조변수를 지정해야함
     const inputRef = useRef<HTMLInputElement>(null);    // inputRef => HTMLInputElement | undefined 
 
